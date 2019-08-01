@@ -1,0 +1,52 @@
+---
+output: github_document
+always_allow_html: yes
+---
+
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+This a repo that is a home for developing a lesson and talk around drake based workflows. 
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+# drake-example
+
+<!-- badges: start -->
+<a id="devex-badge" rel="Inspiration" href="https://github.com/BCDevExchange/assets/blob/master/README.md"><img alt="An idea being explored and shaped. Open for discussion, but may never go anywhere." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/inspiration.svg" title="An idea being explored and shaped. Open for discussion, but may never go anywhere." /></a>
+<!-- badges: end -->
+
+The goal of drake-example is to provide a repo for developing a lesson or lecture surrounding drake based workflows. 
+
+The simple drake workflow outlined at the moment first involves generating some data:
+```{r}
+library(here)
+source(here("generate_cohort_example.R"))
+```
+
+Then we need to source our respective `.R` files which define the drake workflow:
+```{r setup-drake}
+source(here("R/packages.R"))
+source(here("R/functions.R"))       
+source(here("R/plan.R"))    
+```
+
+Then lastly we need to run the plan and visualize our progress. This typically would all be contained within a `make.R` file:
+```{r}
+plan
+
+
+config <- drake_config(plan)
+vis_drake_graph(config)
+
+
+make(plan)
+
+vis_drake_graph(config)
+```
+
+
