@@ -11,6 +11,6 @@
 # See the License for the specific language governing permissions and limitations under the License.
 
 create_plot <- function(data) {
-  ggplot(data, aes(x = height, y = mass, fill = apecies)) +
+  ggplot(data, aes(x = height, y = mass, fill = species)) +
     geom_point()
 }
