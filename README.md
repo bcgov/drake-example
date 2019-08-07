@@ -1,17 +1,31 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+<!--
+Copyright 2018 Province of British Columbia
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and limitations under the License.
+-->
 
 # drake-example
 
 <!-- badges: start -->
 
 <a id="devex-badge" rel="Inspiration" href="https://github.com/BCDevExchange/assets/blob/master/README.md"><img alt="An idea being explored and shaped. Open for discussion, but may never go anywhere." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/inspiration.svg" title="An idea being explored and shaped. Open for discussion, but may never go anywhere." /></a>
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 <!-- badges: end -->
 
-The goal of drake-example is to provide a repo for developing a lesson
-or lecture surrounding drake-based R workflows.
+The goal of drake-example is to provide a repo for developing a demo or
+lesson for using the [drake](https://ropensci.github.io/drake/) package
+for [R](https://www.r-project.org/) workflows.
 
-A simple drake workflow outlined (WIP):
+A simple drake workflow:
 
 1)  First — generate some data:
 
@@ -61,22 +75,49 @@ plan
 #>  9 merge4             merge3 %>% left_join(pnet_data)                     …
 #> 10 export             readr::write_csv(merge4, file_out("out/final_merge.c…
 
-
 config <- drake_config(plan)
+
+make(plan)
+#> All targets are already up to date.
+
 vis_drake_graph(config)
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
-``` r
+All 3 steps above would typically be contained within a `make.R` file.
 
+### Getting Help or Reporting an Issue
 
-make(plan)
-#> target export
+To report bugs/issues/feature requests, please file an
+[issue](https://github.com/bcgov/drake-example/issues/).
 
-vis_drake_graph(config)
-```
+### How to Contribute
 
-![](README_files/figure-gfm/unnamed-chunk-3-2.png)<!-- -->
+If you would like to contribute to the package, please see our
+[CONTRIBUTING](CONTRIBUTING.md) guidelines.
 
-All 3 steps would typically be contained within a `make.R` file.
+Please note that this project is released with a [Contributor Code of
+Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree
+to abide by its terms.
+
+### License
+
+Copyright 2019 Province of British Columbia
+
+Licensed under the Apache License, Version 2.0 (the “License”); you may
+not use this file except in compliance with the License. You may obtain
+a copy of the License at
+
+<http://www.apache.org/licenses/LICENSE-2.0>
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an “AS IS” BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+-----
+
+*This project was created using the
+[bcgovr](https://github.com/bcgov/bcgovr) package.*
