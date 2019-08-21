@@ -14,6 +14,10 @@
 ## Generate some related tables to demonstrate a merging process
 library(dplyr)
 library(readr)
+library(here)
+
+if (!exists(here("data"))) dir.create(here("data"), showWarnings = FALSE)
+if (!exists(here("out"))) dir.create(here("out"), showWarnings = FALSE)
 
 starwars %>% 
 select(name, gender) %>% 
