@@ -24,5 +24,10 @@ plan <- drake_plan(
     left_join(msp_service_summary),
   merge4 = merge3 %>% 
     left_join(pnet_data),
-  export = readr::write_csv(merge4, file_out("out/final_merge.csv"))
+  export = readr::write_csv(merge4, file_out("out/final_merge.csv")),
+  report = rmarkdown::render(
+    knitr_in("report.Rmd"),
+    output_file = file_out("report.html"),
+    quiet = TRUE
+  )
 )
