@@ -31,36 +31,36 @@ knitr::opts_chunk$set(
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 <!-- badges: end -->
 
-The goal of drake-example is to provide a repo for developing a demo or lesson for using the [drake](https://ropensci.github.io/drake/) package for [R](https://www.r-project.org/) workflows. 
 
-A simple drake workflow:
-
-(1) First --- generate some data:
-```{r}
-library(here)
-source(here("generate_cohort_example.R"))
+## Install dependencies
+```{r, eval=FALSE}
+remotes::install_deps(dependencies = TRUE, build = FALSE)
 ```
 
-(2) Source the respective `.R` files which define the drake workflow:
-```{r setup-drake}
-source(here("R/packages.R"))
-source(here("R/functions.R"))       
-source(here("R/plan.R"))    
+
+The goal of drake-example is to provide a template repo for using the [drake](https://ropensci.github.io/drake/) package for [R](https://www.r-project.org/) workflows. The repo is also tries to utilize R compendiums to manage dependencies and enables the suite package management tools. Here is the current directory of files for this type of project:
+
+## File Structures
+```{r, echo=FALSE}
+fs::dir_tree()
 ```
 
-(3) Run the plan & visualize progress:
-```{r}
-plan
 
-config <- drake_config(plan)
+## Data
+Fake data is created and stored in the `data-raw` directory.
 
-make(plan)
+## Workflows
 
-vis_drake_graph(config)
-```
+- Store re-useable functions in the `R/` directories. `devtools::load_all()` makes them available during your R session like a package.
+- Write analysis code in the `code/` directory as normal R code. 
+- Use `drake::code_to_plan()` to bring those R scripts into your drake plan. In this example, those actions are stored in `_drake.R`
+- The `exec_drake.R` file is the main control file for the project. The most important element of this script is the `drake::make()` function. This file also sources all other main files.   
 
-All 3 steps above would typically be contained within a `make.R` file.
-
+## Inspiration
+This example draws from the following amazing resources:
+- https://books.ropensci.org/drake/
+- https://github.com/pat-s/pathogen-modeling
+- https://github.com/benmarwick/rrtools
 
 ### Getting Help or Reporting an Issue
 

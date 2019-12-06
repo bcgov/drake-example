@@ -21,71 +21,71 @@ See the License for the specific language governing permissions and limitations 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 <!-- badges: end -->
 
-The goal of drake-example is to provide a repo for developing a demo or
-lesson for using the [drake](https://ropensci.github.io/drake/) package
-for [R](https://www.r-project.org/) workflows.
-
-A simple drake workflow:
-
-1)  First — generate some data:
-
-<!-- end list -->
+## Install dependencies
 
 ``` r
-library(here)
-#> here() starts at /Users/shazlitt/dev/drake-example
-source(here("generate_cohort_example.R"))
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
+remotes::install_deps(dependencies = TRUE, build = FALSE)
 ```
 
-2)  Source the respective `.R` files which define the drake workflow:
+The goal of drake-example is to provide a template repo for using the
+[drake](https://ropensci.github.io/drake/) package for
+[R](https://www.r-project.org/) workflows. The repo is also tries to
+utilize R compendiums to manage dependencies and enables the suite
+package management tools. Here is the current directory of files for
+this type of project:
 
-<!-- end list -->
+## File Structures
 
-``` r
-source(here("R/packages.R"))
-source(here("R/functions.R"))       
-source(here("R/plan.R"))    
-```
+    #> .
+    #> +-- code
+    #> |   +-- 01-data
+    #> |   |   \-- data.R
+    #> |   \-- packages.R
+    #> +-- CODE_OF_CONDUCT.md
+    #> +-- CONTRIBUTING.md
+    #> +-- data-raw
+    #> |   +-- birth-year.csv
+    #> |   +-- generate_cohort_example.R
+    #> |   +-- names.csv
+    #> |   +-- other-traits.csv
+    #> |   +-- physical-traits.csv
+    #> |   \-- place-characteristics.csv
+    #> +-- DESCRIPTION
+    #> +-- drake-example.Rproj
+    #> +-- exec_drake.R
+    #> +-- inst
+    #> +-- LICENSE
+    #> +-- man
+    #> +-- NAMESPACE
+    #> +-- R
+    #> |   +-- functions.R
+    #> |   \-- plan.R
+    #> +-- README.md
+    #> +-- README.Rmd
+    #> \-- _drake.R
 
-3)  Run the plan & visualize progress:
+## Data
 
-<!-- end list -->
+Fake data is created and stored in the `data-raw` directory.
 
-``` r
-plan
-#> # A tibble: 10 x 2
-#>    target             command                                              
-#>    <chr>              <expr>                                               
-#>  1 studypop           readr::read_csv(file_in("data/studypop.csv"))       …
-#>  2 dad_service_summa… readr::read_csv(file_in("data/dad_service_summary.cs…
-#>  3 edu_data           readr::read_csv(file_in("data/edu_data.csv"))       …
-#>  4 msp_service_summa… readr::read_csv(file_in("data/msp_service_summary.cs…
-#>  5 pnet_data          readr::read_csv(file_in("data/pnet_data.csv"))      …
-#>  6 merge1             studypop %>% left_join(dad_service_summary)         …
-#>  7 merge2             merge1 %>% left_join(edu_data)                      …
-#>  8 merge3             merge2 %>% left_join(msp_service_summary)           …
-#>  9 merge4             merge3 %>% left_join(pnet_data)                     …
-#> 10 export             readr::write_csv(merge4, file_out("out/final_merge.c…
+## Workflows
 
-config <- drake_config(plan)
+  - Store re-useable functions in the `R/` directories.
+    `devtools::load_all()` makes them available during your R session
+    like a package.
+  - Write analysis code in the `code/` directory as normal R code.
+  - Use `drake::code_to_plan()` to bring those R scripts into your drake
+    plan. In this example, those actions are stored in `_drake.R`
+  - The `exec_drake.R` file is the main control file for the project.
+    The most important element of this script is the `drake::make()`
+    function. This file also sources all other main files.
 
-make(plan)
-#> All targets are already up to date.
+## Inspiration
 
-vis_drake_graph(config)
-```
-
-![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
-
-All 3 steps above would typically be contained within a `make.R` file.
+This example draws from the following amazing resources: -
+<https://books.ropensci.org/drake/> -
+<https://github.com/pat-s/pathogen-modeling> -
+<https://github.com/benmarwick/rrtools>
 
 ### Getting Help or Reporting an Issue
 

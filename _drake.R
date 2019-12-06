@@ -10,21 +10,12 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
-## Create fake data
-source('generate_cohort_example.R')
+source("code/packages.R")
 
-source("R/packages.R")  # loads packages
-source("R/functions.R") # defines the create_plot() function
-source("R/plan.R")      # creates the drake plan
+data_plan = code_to_plan("code/01-data/data.R")
 
-plan
+
+plan = bind_plans(data_plan)
 
 
 config <- drake_config(plan)
-vis_drake_graph(config)
-
-
-make(plan)
-
-vis_drake_graph(config)
-sankey_drake_graph(config)
