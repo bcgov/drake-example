@@ -14,7 +14,6 @@
 ## Generate some related tables to demonstrate a merging process
 library(dplyr)
 library(readr)
-library(here)
 library(glue)
 
 data_path <- 'data-raw'
