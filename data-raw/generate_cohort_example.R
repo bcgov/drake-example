@@ -15,28 +15,28 @@
 library(dplyr)
 library(readr)
 library(here)
+library(glue)
 
-if (!exists(here("data"))) dir.create(here("data"), showWarnings = FALSE)
-if (!exists(here("out"))) dir.create(here("out"), showWarnings = FALSE)
+data_path <- 'data-raw'
 
 starwars %>% 
-select(name, gender) %>% 
-  write_csv("data/studypop.csv")
+  select(name, gender) %>% 
+  write_csv(glue("{data_path}/names.csv"))
 
 starwars %>% 
   select(name, height, mass) %>% 
-  write_csv("data/pnet_data.csv")
+  write_csv(glue("{data_path}/physical-traits.csv"))
 
 starwars %>% 
   select(name, birth_year) %>% 
-  readr::write_csv("data/edu_data.csv")
+  write_csv(glue("{data_path}/birth-year.csv"))
 
 starwars %>% 
   select(name, hair_color, skin_color, eye_color) %>% 
   filter(eye_color %in% c("blue", "yellow", "red")) %>% 
-  readr::write_csv("data/msp_service_summary.csv")
+  write_csv(glue("{data_path}/other-traits.csv"))
 
 starwars %>% 
   select(name, homeworld, species) %>% 
   filter(species != "Human") %>% 
-  readr::write_csv("data/dad_service_summary.csv")
+  write_csv(glue("{data_path}/place-characteristics.csv"))

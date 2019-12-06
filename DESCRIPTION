@@ -1,0 +1,19 @@
+Package: drake.example
+Title: Compendium and drake example
+Version: 0.0.0.9000
+Authors@R:
+  person(given = "Sam",
+         family = "Albers",
+         role = c("aut", "cre"),
+         email = "sam.albers@gov.bc.ca")
+Description: A place to try out compendiums and drake
+License: APACHE 2.0
+Depends: 
+  dplyr
+Suggests:
+  testthat
+ByteCompile: true
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1

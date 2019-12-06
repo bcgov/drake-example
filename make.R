@@ -10,7 +10,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
-
+## Create fake data
+source('generate_cohort_example.R')
 
 source("R/packages.R")  # loads packages
 source("R/functions.R") # defines the create_plot() function
