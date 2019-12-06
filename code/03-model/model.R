@@ -11,18 +11,25 @@
 # See the License for the specific language governing permissions and limitations under the License.
 
 
-library(drake)
+data_split <- merged_clean_data %>%
+  initial_split(prop = 0.8)
 
-r_outdated(r_args = list(show = TRUE))
-
-
-r_make(r_args = list(show = TRUE))
-
-# visualize
-
-r_vis_drake_graph()
+data_training <- training(data_split)
+data_testing <- testing(data_split)
 
 
-r_outdated(r_args = list(show = TRUE))
+fit_lm <- train(height ~ mass, 
+                method = "lm", 
+                data = data_training,
+                trControl = trainControl(method = "none"))
 
 
+results <- data_training %>%
+  mutate(lm.param = predict(fit_lm, data_training))
+
+
+model_performance <- metrics(results, truth = height, estimate = lm.param)
+
+
+test_results <- data_testing %>%
+  mutate(lm.param = predict(fit_lm, data_testing))

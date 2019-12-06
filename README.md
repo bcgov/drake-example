@@ -36,33 +36,37 @@ this type of project:
 
 ## File Structures
 
-    #> .
-    #> +-- code
-    #> |   +-- 01-data
-    #> |   |   \-- data.R
-    #> |   \-- packages.R
-    #> +-- CODE_OF_CONDUCT.md
-    #> +-- CONTRIBUTING.md
-    #> +-- data-raw
-    #> |   +-- birth-year.csv
-    #> |   +-- generate_cohort_example.R
-    #> |   +-- names.csv
-    #> |   +-- other-traits.csv
-    #> |   +-- physical-traits.csv
-    #> |   \-- place-characteristics.csv
-    #> +-- DESCRIPTION
-    #> +-- drake-example.Rproj
-    #> +-- exec_drake.R
-    #> +-- inst
-    #> +-- LICENSE
-    #> +-- man
-    #> +-- NAMESPACE
-    #> +-- R
-    #> |   +-- functions.R
-    #> |   \-- plan.R
-    #> +-- README.md
-    #> +-- README.Rmd
-    #> \-- _drake.R
+    .
+    +-- code
+    |   +-- 01-data
+    |   |   +-- data.R
+    |   |   \-- merging.R
+    |   +-- 02-cleaning
+    |   |   \-- remove_na.R
+    |   +-- 03-model
+    |   |   \-- model.R
+    |   \-- packages.R
+    +-- CODE_OF_CONDUCT.md
+    +-- CONTRIBUTING.md
+    +-- data-raw
+    |   +-- birth-year.csv
+    |   +-- generate_cohort_example.R
+    |   +-- names.csv
+    |   +-- other-traits.csv
+    |   +-- physical-traits.csv
+    |   \-- place-characteristics.csv
+    +-- DESCRIPTION
+    +-- drake-example.Rproj
+    +-- exec_drake.R
+    +-- inst
+    +-- LICENSE
+    +-- man
+    +-- NAMESPACE
+    +-- R
+    |   \-- functions.R
+    +-- README.md
+    +-- README.Rmd
+    \-- _drake.R
 
 ## Data
 
@@ -85,7 +89,8 @@ Fake data is created and stored in the `data-raw` directory.
 This example draws from the following amazing resources: -
 <https://books.ropensci.org/drake/> -
 <https://github.com/pat-s/pathogen-modeling> -
-<https://github.com/benmarwick/rrtools>
+<https://github.com/benmarwick/rrtools> -
+<https://supervised-ml-course.netlify.com/>
 
 ### Getting Help or Reporting an Issue
 

@@ -10,19 +10,5 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
-
-library(drake)
-
-r_outdated(r_args = list(show = TRUE))
-
-
-r_make(r_args = list(show = TRUE))
-
-# visualize
-
-r_vis_drake_graph()
-
-
-r_outdated(r_args = list(show = TRUE))
-
-
+merged_clean_data <- merged_data %>% 
+  filter(!is.na(height), !is.na(mass))

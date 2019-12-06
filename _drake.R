@@ -11,13 +11,33 @@
 # See the License for the specific language governing permissions and limitations under the License.
 
 source("code/packages.R")
+source("code/generate_cohort_example.R")
+
+
+# Data --------------------------------------------------------------------
 
 data_plan = code_to_plan("code/01-data/data.R")
 join_plan = code_to_plan("code/01-data/merging.R")
 
 
-plan = bind_plans(data_plan,
-                  join_plan)
+# Cleaning ----------------------------------------------------------------
+
+cleaning_plan = code_to_plan("code/02-cleaning/remove_na.R")
+
+
+# Model -------------------------------------------------------------------
+
+model_plan = code_to_plan("code/03-model/model.R")
+
+
+# Combine Plans
+plan = bind_plans(
+  #create_data_plan,
+  data_plan,
+  join_plan,
+  cleaning_plan,
+  model_plan
+  )
 
 
 config <- drake_config(plan)

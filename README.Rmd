@@ -21,7 +21,7 @@ See the License for the specific language governing permissions and limitations 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = ""
 )
 ```
 # drake-example
@@ -47,7 +47,7 @@ fs::dir_tree()
 
 
 ## Data
-Fake data is created and stored in the `data-raw` directory.
+Fake data are created and stored in the `data-raw` directory.
 
 ## Workflows
 
@@ -61,6 +61,7 @@ This example draws from the following amazing resources:
 - https://books.ropensci.org/drake/
 - https://github.com/pat-s/pathogen-modeling
 - https://github.com/benmarwick/rrtools
+- https://supervised-ml-course.netlify.com/
 
 ### Getting Help or Reporting an Issue
 

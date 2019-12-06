@@ -10,7 +10,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
-library(drake)
-library(dplyr)
-library(ggplot2)
-# library(visNetwork) or webshot::install_phantomjs() for macOS users
+
+## This loads all functions in R as well as the packages in the description
+devtools::load_all()

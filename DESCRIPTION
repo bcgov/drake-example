@@ -9,9 +9,13 @@ Authors@R:
 Description: A place to try out compendiums and drake
 License: APACHE 2.0
 Depends: 
+    caret,
     dplyr,
     drake,
-    readr
+    glue,
+    rsample,
+    readr,
+    yardstick
 Suggests:
     testthat
 ByteCompile: true
