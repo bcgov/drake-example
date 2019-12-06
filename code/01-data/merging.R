@@ -10,14 +10,13 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
-source("code/packages.R")
 
-data_plan = code_to_plan("code/01-data/data.R")
-join_plan = code_to_plan("code/01-data/merging.R")
+data_to_be_merged <- list(
+  names,
+  physical_traits,
+  other_traits,
+  birth_year,
+  places
+)
 
-
-plan = bind_plans(data_plan,
-                  join_plan)
-
-
-config <- drake_config(plan)
+merged_data <- Reduce(function(...) left_join(...), data_to_be_merged)

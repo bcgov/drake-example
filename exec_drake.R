@@ -11,9 +11,18 @@
 # See the License for the specific language governing permissions and limitations under the License.
 
 
-source("_drake.R")
+library(drake)
 
-vis_drake_graph(config)
 
-make(plan)
+## make targets
+
+r_make(r_args = list(show = TRUE))
+
+# visualize
+
+r_vis_drake_graph()
+# see outdated
+
+r_outdated(r_args = list(show = TRUE))
+
 

@@ -5,3 +5,4 @@
 ^LICENSE\.md$
 ^\.Rproj\.user$
 analysis
+^.*\.Rproj$
