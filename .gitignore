@@ -36,6 +36,8 @@ vignettes/*.pdf
 rsconnect/
 
 data/
+
+data-raw/
 .drake/
 .drake_history/
 out/
