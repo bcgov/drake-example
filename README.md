@@ -45,12 +45,12 @@ this type of project:
     |   |   \-- remove_na.R
     |   +-- 03-model
     |   |   \-- model.R
+    |   +-- generate_data.R
     |   \-- packages.R
     +-- CODE_OF_CONDUCT.md
     +-- CONTRIBUTING.md
     +-- data-raw
     |   +-- birth-year.csv
-    |   +-- generate_cohort_example.R
     |   +-- names.csv
     |   +-- other-traits.csv
     |   +-- physical-traits.csv
@@ -70,7 +70,8 @@ this type of project:
 
 ## Data
 
-Fake data is created and stored in the `data-raw` directory.
+Fake data are created and stored in the `data-raw` directory. Here we
+are using the `starwars` data from the `dplyr` package.
 
 ## Workflows
 
@@ -79,10 +80,13 @@ Fake data is created and stored in the `data-raw` directory.
     like a package.
   - Write analysis code in the `code/` directory as normal R code.
   - Use `drake::code_to_plan()` to bring those R scripts into your drake
-    plan. In this example, those actions are stored in `_drake.R`
-  - The `exec_drake.R` file is the main control file for the project.
-    The most important element of this script is the `drake::make()`
-    function. This file also sources all other main files.
+    plan as *targets*. The plan and the targets are stored in
+    `_drake.R`. For many of its processes, `drake` will automatically
+    look for that `_drake.R` file.
+  - The `exec_drake.R` and the `DESCRIPTION` files are the main control
+    files for the project. The most important element of this script is
+    the `drake::make()` or `drake::r_make` functions. This file also
+    sources all other required files.
 
 ## Inspiration
 

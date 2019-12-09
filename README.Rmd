@@ -47,14 +47,14 @@ fs::dir_tree()
 
 
 ## Data
-Fake data are created and stored in the `data-raw` directory.
+Fake data are created and stored in the `data-raw` directory. Here we are using the `starwars` data from the `dplyr` package. 
 
 ## Workflows
 
 - Store re-useable functions in the `R/` directories. `devtools::load_all()` makes them available during your R session like a package.
 - Write analysis code in the `code/` directory as normal R code. 
-- Use `drake::code_to_plan()` to bring those R scripts into your drake plan. In this example, those actions are stored in `_drake.R`
-- The `exec_drake.R` file is the main control file for the project. The most important element of this script is the `drake::make()` function. This file also sources all other main files.   
+- Use `drake::code_to_plan()` to bring those R scripts into your drake plan as _targets_. The plan and the targets are stored in `_drake.R`. For many of its processes, `drake` will automatically look for that `_drake.R` file. 
+- The `exec_drake.R` and the `DESCRIPTION` files are the main control files for the project. The most important element of this script is the `drake::make()` or `drake::r_make` functions. This file also sources all other required files.   
 
 ## Inspiration
 This example draws from the following amazing resources:
