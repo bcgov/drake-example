@@ -13,16 +13,18 @@
 
 library(drake)
 
+## Show outdated targets
 r_outdated(r_args = list(show = TRUE))
+r_vis_drake_graph(targets_only = TRUE)
 
 
+## Run the plan
 r_make(r_args = list(show = TRUE))
 
-# visualize
+# Where are we now?
+r_vis_drake_graph(targets_only = TRUE)
 
-r_vis_drake_graph()
 
 
-r_outdated(r_args = list(show = TRUE))
 
 
