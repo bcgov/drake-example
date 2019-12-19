@@ -10,7 +10,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
-names <- read_csv("data-raw/names.csv")
+names <- target(read_csv("data-raw/names.csv"), format = "fst")
 physical_traits <- read_csv("data-raw/physical-traits.csv")
 other_traits <- read_csv("data-raw/other-traits.csv")
 birth_year <- read_csv("data-raw/birth-year.csv")

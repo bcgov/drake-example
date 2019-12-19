@@ -10,7 +10,15 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
-create_plot <- function(data) {
-  ggplot(data, aes(x = height, y = mass, fill = species)) +
-    geom_point()
+
+## From here: https://stackoverflow.com/questions/59400277/using-code-to-plan-and-target-format-fst-in-drake
+add_target_format <- function(plan) {
+  
+  # Get a list of named commands.
+  commands <- plan$command
+  names(commands) <- plan$target
+  
+  # Turn it into a good plan.
+  do.call(drake_plan, commands)
+  
 }

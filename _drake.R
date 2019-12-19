@@ -31,12 +31,17 @@ model_plan = code_to_plan("code/03-model/model.R")
 
 
 # Combine Plans
-dplan = bind_plans(
+preplan = bind_plans(
   data_plan,
   join_plan,
   cleaning_plan,
   model_plan
-  )
+  ) %>% 
+  add_target_format()
+
+
+
+
 
 dplan2 <- drake_plan(full_plan = target(dplan, format = "fst"))
 
