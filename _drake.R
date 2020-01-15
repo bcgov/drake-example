@@ -16,8 +16,10 @@ source("code/generate_data.R")
 
 # Data --------------------------------------------------------------------
 
-data_plan = code_to_plan("code/01-data/data.R")
-join_plan = code_to_plan("code/01-data/merging.R")
+data_plan = code_to_plan("code/01-data/data.R") %>% 
+  add_target_format()
+join_plan = code_to_plan("code/01-data/merging.R") %>%
+  add_target_format()
 
 
 # Cleaning ----------------------------------------------------------------
@@ -47,3 +49,4 @@ preplan = bind_plans(
 
 
 
+config <- drake_config(preplan)

@@ -10,8 +10,15 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
-names <- target(read_csv("data-raw/names.csv"), format = "fst")
+names <- read_csv("data-raw/names.csv")
 physical_traits <- read_csv("data-raw/physical-traits.csv")
 other_traits <- read_csv("data-raw/other-traits.csv")
 birth_year <- read_csv("data-raw/birth-year.csv")
 places <- read_csv("data-raw/place-characteristics.csv")
+
+
+rep_names <- rep(unique(names$name), 1E5)
+
+fst_data <- target(data.frame(name = rep_names, y = runif(length(rep_names))), format = "fst")
+
+raw_data <- data.frame(name = rep_names, y = runif(length(rep_names)))

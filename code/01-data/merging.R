@@ -16,7 +16,9 @@ data_to_be_merged <- list(
   physical_traits,
   other_traits,
   birth_year,
-  places
+  places,
+  fst_data,
+  raw_data
 )
 
-merged_data <- Reduce(function(...) left_join(...), data_to_be_merged)
+merged_data <- target(Reduce(function(...) left_join(...), data_to_be_merged), format = "fst")
