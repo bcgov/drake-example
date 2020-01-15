@@ -29,21 +29,21 @@ cleaning_plan = code_to_plan("code/02-cleaning/remove_na.R")
 
 model_plan = code_to_plan("code/03-model/model.R")
 
+report_plan = drake_plan(report = rmarkdown::render(
+  knitr_in("report.Rmd"),
+  output_file = file_out("out/report.html"),
+  quiet = TRUE
+))
+
 
 # Combine Plans
 preplan = bind_plans(
   data_plan,
   join_plan,
   cleaning_plan,
-  model_plan
-  ) %>% 
-  add_target_format()
+  model_plan,
+  report_plan
+  )
 
 
 
-
-
-dplan2 <- drake_plan(full_plan = target(dplan, format = "fst"))
-
-
-config <- drake_config(dplan2)

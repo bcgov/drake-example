@@ -1,0 +1,39 @@
+---
+title: "Using an RMarkdown file with drake"
+author: Sam Albers
+output: html_document
+---
+
+# Package
+
+```{r Package}
+library(drake)
+library(dplyr)
+library(ggplot2)
+```
+
+# Model Performance
+
+```{r}
+readd(model_performance)
+```
+
+# Test Results
+
+```{r}
+loadd(test_results)
+
+test_summary <- test_results %>% 
+  group_by(name) %>% 
+  summarize(mean_y = mean(y))
+```
+
+# A plot
+
+```{r}
+test_summary %>% 
+  ggplot(aes(x = name, y = mean_y)) +
+  geom_col() +
+  coord_flip()
+```
+
