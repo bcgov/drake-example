@@ -62,10 +62,13 @@ this type of project:
     +-- LICENSE
     +-- man
     +-- NAMESPACE
+    +-- out
+    |   \-- report.html
     +-- R
     |   \-- functions.R
     +-- README.md
     +-- README.Rmd
+    +-- report.Rmd
     \-- _drake.R
 
 ## Data
