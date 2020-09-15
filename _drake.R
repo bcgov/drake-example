@@ -10,8 +10,9 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
-source("code/packages.R")
+source("code/setup.R")
 source("code/generate_data.R")
+source("R/functions.R")
 
 
 # Data --------------------------------------------------------------------
