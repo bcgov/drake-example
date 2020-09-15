@@ -12,4 +12,8 @@
 
 
 ## This loads all functions in R as well as the packages in the description
-devtools::load_all()
+library(desc)
+
+invisible(lapply(desc_get_deps()$package, library, 
+       character.only = TRUE, 
+       warn.conflicts = FALSE))
