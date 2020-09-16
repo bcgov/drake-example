@@ -21,4 +21,7 @@ data_to_be_merged <- list(
   raw_data
 )
 
-merged_data <- target(Reduce(function(...) left_join(...), data_to_be_merged), format = "fst")
+merged_data <- left_join_many(data_to_be_merged)
+
+
+

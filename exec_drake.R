@@ -15,7 +15,7 @@ library(drake)
 
 ## Show outdated targets
 r_outdated(r_args = list(show = TRUE))
-r_vis_drake_graph(targets_only = TRUE)
+r_vis_drake_graph()
 
 
 ## Run the plan

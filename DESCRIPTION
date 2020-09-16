@@ -12,6 +12,7 @@ License: APACHE 2.0
 Depends: 
     caret,
     dplyr,
+    data.table,
     drake,
     glue,
     fst,

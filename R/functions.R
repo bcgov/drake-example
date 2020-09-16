@@ -22,3 +22,14 @@ add_target_format <- function(plan) {
   do.call(drake_plan, commands)
   
 }
+
+
+#' Join many data frames
+#' 
+#' This is a very specific function to join data created in this repo
+left_join_many <- function(data_to_be_merged) {
+  
+  if (!inherits(data_to_be_merged, "list")) stop("data_to_be_merged is a not a list")
+  
+  Reduce(function(...) left_join(...), data_to_be_merged)
+}
