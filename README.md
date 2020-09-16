@@ -15,12 +15,6 @@ See the License for the specific language governing permissions and limitations 
 
 # drake-example
 
-<!-- badges: start -->
-
-<a id="devex-badge" rel="Inspiration" href="https://github.com/BCDevExchange/assets/blob/master/README.md"><img alt="An idea being explored and shaped. Open for discussion, but may never go anywhere." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/inspiration.svg" title="An idea being explored and shaped. Open for discussion, but may never go anywhere." /></a>
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-<!-- badges: end -->
-
 ## Install dependencies
 
 ``` r
@@ -46,8 +40,9 @@ this type of project:
     |   +-- 03-model
     |   |   \-- model.R
     |   +-- generate_data.R
-    |   \-- packages.R
+    |   \-- setup.R
     +-- CODE_OF_CONDUCT.md
+    +-- COMPLIANCE.yaml
     +-- CONTRIBUTING.md
     +-- data-raw
     |   +-- birth-year.csv
@@ -62,10 +57,13 @@ this type of project:
     +-- LICENSE
     +-- man
     +-- NAMESPACE
+    +-- out
+    |   \-- report.html
     +-- R
     |   \-- functions.R
     +-- README.md
     +-- README.Rmd
+    +-- report.Rmd
     \-- _drake.R
 
 ## Data
@@ -90,11 +88,12 @@ are using the `starwars` data from the `dplyr` package.
 
 ## Inspiration
 
-This example draws from the following amazing resources: -
-<https://books.ropensci.org/drake/> -
-<https://github.com/pat-s/pathogen-modeling> -
-<https://github.com/benmarwick/rrtools> -
-<https://supervised-ml-course.netlify.com/>
+This example draws from the following amazing resources:
+
+  - <https://books.ropensci.org/drake/>
+  - <https://github.com/pat-s/pathogen-modeling>
+  - <https://github.com/benmarwick/rrtools>
+  - <https://supervised-ml-course.netlify.com/>
 
 ### Getting Help or Reporting an Issue
 
