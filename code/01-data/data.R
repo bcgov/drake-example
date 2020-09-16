@@ -17,7 +17,7 @@ birth_year <- read_csv("data-raw/birth-year.csv")
 places <- read_csv("data-raw/place-characteristics.csv")
 
 
-rep_names <- rep(unique(names$name), 1E5)
+rep_names <- rep(unique(names$name), 1E3)
 
 fst_data <- target(data.frame(name = rep_names, y = runif(length(rep_names))), format = "fst")
 

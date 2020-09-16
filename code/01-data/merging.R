@@ -24,6 +24,4 @@ data_to_be_merged <- list(
 merged_data <- left_join_many(data_to_be_merged)
 
 
-merged_data_dt <- as.data.table(merged_data)
-
 
