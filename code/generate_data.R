@@ -18,6 +18,8 @@ library(glue)
 
 data_path <- 'data-raw'
 
+if (!dir.exists(data_path)) dir.create(data_path)
+
 starwars %>% 
   select(name, gender) %>% 
   write_csv(glue("{data_path}/names.csv"))

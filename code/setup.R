@@ -17,3 +17,5 @@ library(desc)
 invisible(lapply(desc_get_deps()$package, library, 
        character.only = TRUE, 
        warn.conflicts = FALSE))
+
+if (!dir.exists('out')) dir.create('out')
