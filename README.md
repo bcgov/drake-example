@@ -20,7 +20,9 @@ See the License for the specific language governing permissions and limitations 
 
 ## Install dependencies
 
-    remotes::install_deps(dependencies = TRUE, build = FALSE)
+``` r
+remotes::install_deps(dependencies = TRUE, build = FALSE)
+```
 
 The goal of drake-example is to provide a template repo for using the
 [drake](https://ropensci.github.io/drake/) package for
@@ -32,38 +34,38 @@ this type of project:
 ## File Structures
 
     .
-    ├── CODE_OF_CONDUCT.md
-    ├── COMPLIANCE.yaml
-    ├── CONTRIBUTING.md
-    ├── DESCRIPTION
-    ├── LICENSE
-    ├── NAMESPACE
-    ├── R
-    │   └── functions.R
-    ├── README.Rmd
-    ├── README.md
-    ├── _drake.R
-    ├── code
-    │   ├── 01-data
-    │   │   ├── data.R
-    │   │   └── merging.R
-    │   ├── 02-cleaning
-    │   │   └── remove_na.R
-    │   ├── 03-model
-    │   │   └── model.R
-    │   ├── generate_data.R
-    │   └── setup.R
-    ├── data
-    │   ├── dad_service_summary.csv
-    │   ├── edu_data.csv
-    │   ├── msp_service_summary.csv
-    │   ├── pnet_data.csv
-    │   └── studypop.csv
-    ├── drake-example.Rproj
-    ├── exec_drake.R
-    ├── out
-    │   └── final_merge.csv
-    └── report.Rmd
+    +-- code
+    |   +-- 01-data
+    |   |   +-- data.R
+    |   |   \-- merging.R
+    |   +-- 02-cleaning
+    |   |   \-- remove_na.R
+    |   +-- 03-model
+    |   |   \-- model.R
+    |   +-- generate_data.R
+    |   \-- setup.R
+    +-- CODE_OF_CONDUCT.md
+    +-- COMPLIANCE.yaml
+    +-- CONTRIBUTING.md
+    +-- data-raw
+    |   +-- birth-year.csv
+    |   +-- names.csv
+    |   +-- other-traits.csv
+    |   +-- physical-traits.csv
+    |   \-- place-characteristics.csv
+    +-- DESCRIPTION
+    +-- drake-example.Rproj
+    +-- exec_drake.R
+    +-- LICENSE
+    +-- NAMESPACE
+    +-- out
+    |   \-- report.html
+    +-- R
+    |   \-- functions.R
+    +-- README.md
+    +-- README.Rmd
+    +-- report.Rmd
+    \-- _drake.R
 
 ## Data
 
@@ -72,15 +74,15 @@ are using the `starwars` data from the `dplyr` package.
 
 ## Workflows
 
--   Store re-useable functions in the `R/` directories.
+  - Store re-useable functions in the `R/` directories.
     `devtools::load_all()` makes them available during your R session
     like a package.
--   Write analysis code in the `code/` directory as normal R code.
--   Use `drake::code_to_plan()` to bring those R scripts into your drake
+  - Write analysis code in the `code/` directory as normal R code.
+  - Use `drake::code_to_plan()` to bring those R scripts into your drake
     plan as *targets*. The plan and the targets are stored in
     `_drake.R`. For many of its processes, `drake` will automatically
     look for that `_drake.R` file.
--   The `exec_drake.R` and the `DESCRIPTION` files are the main control
+  - The `exec_drake.R` and the `DESCRIPTION` files are the main control
     files for the project. The most important element of this script is
     the `drake::make()` or `drake::r_make` functions. This file also
     sources all other required files.
@@ -89,10 +91,10 @@ are using the `starwars` data from the `dplyr` package.
 
 This example draws from the following amazing resources:
 
--   <a href="https://books.ropensci.org/drake/" class="uri">https://books.ropensci.org/drake/</a>
--   <a href="https://github.com/pat-s/pathogen-modeling" class="uri">https://github.com/pat-s/pathogen-modeling</a>
--   <a href="https://github.com/benmarwick/rrtools" class="uri">https://github.com/benmarwick/rrtools</a>
--   <a href="https://supervised-ml-course.netlify.com/" class="uri">https://supervised-ml-course.netlify.com/</a>
+  - <https://books.ropensci.org/drake/>
+  - <https://github.com/pat-s/pathogen-modeling>
+  - <https://github.com/benmarwick/rrtools>
+  - <https://supervised-ml-course.netlify.com/>
 
 ### Getting Help or Reporting an Issue
 
@@ -116,7 +118,7 @@ Licensed under the Apache License, Version 2.0 (the “License”); you may
 not use this file except in compliance with the License. You may obtain
 a copy of the License at
 
-<a href="http://www.apache.org/licenses/LICENSE-2.0" class="uri">http://www.apache.org/licenses/LICENSE-2.0</a>
+<http://www.apache.org/licenses/LICENSE-2.0>
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an “AS IS” BASIS,
@@ -124,7 +126,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-------------------------------------------------------------------------
+-----
 
 *This project was created using the
 [bcgovr](https://github.com/bcgov/bcgovr) package.*
