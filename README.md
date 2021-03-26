@@ -13,10 +13,15 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and limitations under the License.
 -->
 
-[![img](https://img.shields.io/badge/Lifecycle-Maturing-007EC6)](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md)
+[![img](https://img.shields.io/badge/Lifecycle-Retired-d45500)](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 # drake-example
+
+This repo is dormant and will not developed further. With the advent of
+[targets](https://docs.ropensci.org/targets/), drake has largely been
+superceded. Similar examples of targets can be found here:
+<https://docs.ropensci.org/targets/#example-projects>.
 
 ## Install dependencies
 
@@ -74,15 +79,15 @@ are using the `starwars` data from the `dplyr` package.
 
 ## Workflows
 
-  - Store re-useable functions in the `R/` directories.
+-   Store re-useable functions in the `R/` directories.
     `devtools::load_all()` makes them available during your R session
     like a package.
-  - Write analysis code in the `code/` directory as normal R code.
-  - Use `drake::code_to_plan()` to bring those R scripts into your drake
+-   Write analysis code in the `code/` directory as normal R code.
+-   Use `drake::code_to_plan()` to bring those R scripts into your drake
     plan as *targets*. The plan and the targets are stored in
     `_drake.R`. For many of its processes, `drake` will automatically
     look for that `_drake.R` file.
-  - The `exec_drake.R` and the `DESCRIPTION` files are the main control
+-   The `exec_drake.R` and the `DESCRIPTION` files are the main control
     files for the project. The most important element of this script is
     the `drake::make()` or `drake::r_make` functions. This file also
     sources all other required files.
@@ -91,10 +96,10 @@ are using the `starwars` data from the `dplyr` package.
 
 This example draws from the following amazing resources:
 
-  - <https://books.ropensci.org/drake/>
-  - <https://github.com/pat-s/pathogen-modeling>
-  - <https://github.com/benmarwick/rrtools>
-  - <https://supervised-ml-course.netlify.com/>
+-   <https://books.ropensci.org/drake/>
+-   <https://github.com/pat-s/pathogen-modeling>
+-   <https://github.com/benmarwick/rrtools>
+-   <https://supervised-ml-course.netlify.com/>
 
 ### Getting Help or Reporting an Issue
 
@@ -126,7 +131,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
------
+------------------------------------------------------------------------
 
 *This project was created using the
 [bcgovr](https://github.com/bcgov/bcgovr) package.*
